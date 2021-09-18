@@ -49,46 +49,38 @@ public class MappingJoystickQuadrant : MonoBehaviour
 
         if (0 > radians && radians < pi / 2)
         {
-            // quad 1
             return 1;
         }
         else if (radians < pi)
         {
-            // quad 2
             return 2;
         }
         else if (radians < 3 * pi / 2)
         {
-            // quad 3
             return 3;
         }
         else if (radians < 2 * pi)
         {
-            // quad 4
             return 4;
         }
         else if (radians == 0)
         {
-            // 0 rad
             return 5;
         }
         else if (radians == pi / 2)
         {
-            // π/2 rad
             return 6;
         }
         else if (radians == pi)
         {
-            // π rad
             return 7;
         }
         else if (radians == 3 * pi / 2)
         {
-            // 3π/2 rad
             return 8;
         }
 
-        return 0; // default case - should NEVER be reached
+        return 0;
     }
 
     public Vector3Msg CalcSpeeds()
