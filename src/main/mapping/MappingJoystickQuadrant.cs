@@ -1,11 +1,11 @@
-using UnityEngine;
+// using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-using SimpleJSON;
-using ROSBridgeLib;
-using ROSBridgeLib.geometry_msgs;
-using ROSBridgeLib.std_msgs;
+// using SimpleJSON;
+// using ROSBridgeLib;
+// using ROSBridgeLib.geometry_msgs;
+// using ROSBridgeLib.std_msgs;
 
 public class MappingJoystickQuadrant : MonoBehaviour
 {
@@ -104,17 +104,17 @@ public class MappingJoystickQuadrant : MonoBehaviour
         switch (quadrant)
         {
             case 1:
-                leftSpeed = k * cosine + k * sine;
-                rightSpeed = k * cosine - k * sine;
-            case 2:
+                rightSpeed = k * sine + k * cosine;
                 leftSpeed = k * sine - k * cosine;
-                rightSpeed = k * cosine + k * sine;
+            case 2:
+                leftSpeed = k * sine + k * cosine;
+                rightSpeed = k * sine - k * cosine;
             case 3:
-                leftSpeed = -1 * k * sine - k * cosine;
-                rightSpeed = k * sine - k * cosine;
+                leftSpeed = k * cosine - k * sine;
+                rightSpeed = -1 * k * sine - k * cosine;
             case 4:
-                leftSpeed = -1 * k * cosine - k * sine;
-                rightSpeed = k * sine - k * cosine;
+                leftSpeed = -1 * k * sine - k * cosine;
+                rightSpeed = k * cosine - k * sine;
             case 5:
                 leftSpeed = 1;
                 rightSpeed = -1;
@@ -129,8 +129,8 @@ public class MappingJoystickQuadrant : MonoBehaviour
                 rightSpeed = -1;
         }
 
-        leftSpeed = SPEED;
-        rightSpeed = SPEED;
+        leftSpeed *= SPEED;
+        rightSpeed *= SPEED;
 
         Vector3Msg msgv3 = new Vector3Msg(leftSpeed, rightSpeed, 0);
         return msgv3;
